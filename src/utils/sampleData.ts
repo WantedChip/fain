@@ -1,0 +1,86 @@
+import type { FainNode, ForestHealthMetrics, GatewayLog } from '../types/fain';
+
+export const INITIAL_NODES: Record<'node_01' | 'node_02', FainNode> = {
+  node_01: {
+    id: 'node_01',
+    name: 'FAIN-Node-01 (Yeoor Ridge A)',
+    sector: 'Yeoor Hills Sector A — SGNP Buffer',
+    hardware: 'ESP32-S3-WROOM-1 (Dual Xtensa LX7 @ 240MHz)',
+    coreRadio: 'Waveshare Core1262 (SX1262 LoRa @ +22 dBm)',
+    lat: 19.2183,
+    lng: 72.9781,
+    batteryVolts: 4.14,
+    batteryPercent: 92,
+    solarMw: 142,
+    solarMa: 41,
+    solarVolts: 3.46,
+    tempC: 28.4,
+    status: 'ONLINE',
+    lastSeen: new Date(),
+    packetsSent: 342,
+    per: 0.18,
+    rssiAvg: -106,
+    snrAvg: 7.8,
+  },
+  node_02: {
+    id: 'node_02',
+    name: 'FAIN-Node-02 (Kanheri Canopy B)',
+    sector: 'Yeoor Hills Sector B — Valley Watch',
+    hardware: 'ESP32-S3-WROOM-1 (Dual Xtensa LX7 @ 240MHz)',
+    coreRadio: 'Waveshare Core1262 (SX1262 LoRa @ +22 dBm)',
+    lat: 19.2241,
+    lng: 72.9835,
+    batteryVolts: 3.96,
+    batteryPercent: 81,
+    solarMw: 118,
+    solarMa: 34,
+    solarVolts: 3.47,
+    tempC: 29.1,
+    status: 'ONLINE',
+    lastSeen: new Date(),
+    packetsSent: 318,
+    per: 0.22,
+    rssiAvg: -109,
+    snrAvg: 7.1,
+  },
+};
+
+export const INITIAL_FHI: ForestHealthMetrics = {
+  fhi: 84.5,
+  trend: +1.2,
+  ndsi: 0.68,
+  bioticAcousticLevel: 54.2,
+  anthroAcousticLevel: 14.8,
+  lastUpdated: 'Just now',
+};
+
+export const INITIAL_GATEWAY_LOGS: GatewayLog[] = [
+  {
+    id: 'log_boot_1',
+    timestamp: '00:01:14 IST',
+    level: 'INFO',
+    source: 'SX1276',
+    message: 'SX1276 SPI frontend initialized on Raspberry Pi 4 (CS: GPIO 8, RST: GPIO 22, DIO0: GPIO 25)',
+  },
+  {
+    id: 'log_boot_2',
+    timestamp: '00:01:15 IST',
+    level: 'INFO',
+    source: 'SX1276',
+    message: 'Radio config locked: Freq 865.0625 MHz (CH0 IN865), SF9, BW 125 kHz, CR 4/5, Preamble 8 symb',
+  },
+  {
+    id: 'log_boot_3',
+    timestamp: '00:01:16 IST',
+    level: 'MQTT',
+    source: 'CHIRPSTACK',
+    message: 'ChirpStack v4 Gateway Bridge connected to Mosquitto MQTT broker on tcp://127.0.0.1:1883',
+  },
+  {
+    id: 'log_boot_4',
+    timestamp: '00:01:18 IST',
+    level: 'INFO',
+    source: 'NODE_BACKEND',
+    message: 'FAIN Core Engine WebSocket broadcast server listening on ws://0.0.0.0:8088/stream',
+  },
+];
