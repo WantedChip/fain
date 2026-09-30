@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — PS2 Status &amp; Next Steps</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .status-container {
+    padding: 14px 56px 0 56px;
+    height: 540px;
+    display: flex;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+  .col-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+    height: 100%;
+  }
+  .col-header {
+    padding: 16px 20px;
+    display: flex; align-items: center; gap: 10px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 14.5px;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .col-header .material-icons { font-size: 22px; }
+  .col-body {
+    padding: 16px 20px 18px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .col-item {
+    display: flex; align-items: flex-start; gap: 10px;
+    padding: 8px 0;
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .col-item .material-icons { font-size: 19px; flex-shrink: 0; margin-top: 2px; }
+  .col-1 .col-header { background: linear-gradient(90deg, rgba(16,185,129,0.28), rgba(16,185,129,0.10)); color: var(--primary-2); }
+  .col-1 .col-item .material-icons { color: var(--primary-2); }
+  .col-2 .col-header { background: linear-gradient(90deg, rgba(45,212,191,0.28), rgba(45,212,191,0.10)); color: var(--accent); }
+  .col-2 .col-item .material-icons { color: var(--accent); }
+  .col-3 .col-header { background: linear-gradient(90deg, rgba(20,184,166,0.32), rgba(245,158,11,0.18)); color: var(--accent-2); }
+  .col-3 .col-item .material-icons { color: var(--accent-2); }
+
+  .col-tag {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 3px 9px; border-radius: 6px;
+    font-size: 10px; font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+  .col-1 .col-tag { background: rgba(16,185,129,0.18); color: var(--primary-2); border: 1px solid rgba(16,185,129,0.4); }
+  .col-2 .col-tag { background: rgba(45,212,191,0.18); color: var(--accent); border: 1px solid rgba(45,212,191,0.4); }
+  .col-3 .col-tag { background: rgba(245,158,11,0.18); color: #fbbf24; border: 1px solid rgba(245,158,11,0.4); }
+
+  .col-footer-badge {
+    padding-top: 10px;
+    border-top: 1px dashed rgba(45, 212, 191, 0.12);
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 11px;
+    font-family: var(--font-num);
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div style="padding: 26px 56px 0 56px;">
+    <div class="flex items-center gap-3 mb-1">
+      <span class="eyebrow">14 • PS2 Status</span>
+      <span class="soundwave" data-decor>
+        <span style="animation-delay:0s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.6s"></span>
+      </span>
+    </div>
+    <h1 class="title-h1 mb-1">PS2 Status &amp; Next Implementation Steps</h1>
+    <p class="tiny body-muted" style="font-size: 12px;">Clear separation between completed engineering design and pending physical validation</p>
+  </div>
+
+  <div class="status-container">
+    <div class="col-card col-1">
+      <div class="col-header">
+        <span class="material-icons">verified</span>
+        <span>Completed</span>
+        <span class="col-tag">7 items</span>
+      </div>
+      <div class="col-body">
+        <div class="col-item"><span class="material-icons">check_circle</span><span>2-Node + 1 Gateway Architecture</span></div>
+        <div class="col-item"><span class="material-icons">check_circle</span><span>ESP32-S3 + SX1262 Hardware Spec</span></div>
+        <div class="col-item"><span class="material-icons">check_circle</span><span>ALERT &amp; ECO Packet Formats</span></div>
+        <div class="col-item"><span class="material-icons">check_circle</span><span>End-to-End Data-Flow Topology</span></div>
+        <div class="col-item"><span class="material-icons">check_circle</span><span>Scalable Reserve Deployment Model</span></div>
+        <div class="col-item"><span class="material-icons">check_circle</span><span>Candidate Sanctuaries Profiled</span></div>
+        <div class="col-item"><span class="material-icons">check_circle</span><span>Software Digital Twin PoC</span></div>
+        <div class="col-footer-badge" style="color: #34d399;">
+          <span>Design Milestone</span>
+          <span style="font-weight: 700;">100% Locked</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-card col-2">
+      <div class="col-header">
+        <span class="material-icons">sync</span>
+        <span>In Progress</span>
+        <span class="col-tag">7 items</span>
+      </div>
+      <div class="col-body">
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>Component Sourcing &amp; Procurement</span></div>
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>Sensor-Node Bench Assembly</span></div>
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>I2S DMA Audio Firmware Drivers</span></div>
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>7-Class Forest Sound Dataset Prep</span></div>
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>CNN Training &amp; INT8 Quantization</span></div>
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>Chirpstack LoRaWAN Gateway Setup</span></div>
+        <div class="col-item"><span class="material-icons">hourglass_top</span><span>Baseline Current Draw Benchmarking</span></div>
+        <div class="col-footer-badge" style="color: #2dd4bf;">
+          <span>Build Milestone</span>
+          <span style="font-weight: 700;">Active Dev</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-card col-3">
+      <div class="col-header">
+        <span class="material-icons">flag</span>
+        <span>Next Validation</span>
+        <span class="col-tag">7 items</span>
+      </div>
+      <div class="col-body">
+        <div class="col-item"><span class="material-icons">schedule</span><span>ESP32-S3 On-Device Audio Inference</span></div>
+        <div class="col-item"><span class="material-icons">schedule</span><span>LoRa Node-to-Gateway Link Reliability</span></div>
+        <div class="col-item"><span class="material-icons">schedule</span><span>End-to-End Live Dashboard Telemetry</span></div>
+        <div class="col-item"><span class="material-icons">schedule</span><span>Detection Latency Benchmark (&lt;10s)</span></div>
+        <div class="col-item"><span class="material-icons">schedule</span><span>Foliage RSSI / SNR Range Profiling</span></div>
+        <div class="col-item"><span class="material-icons">schedule</span><span>LiPo Battery &amp; Solar Harvest Testing</span></div>
+        <div class="col-item"><span class="material-icons">schedule</span><span>Campus Park &amp; Woodland Field Trials</span></div>
+        <div class="col-footer-badge" style="color: #fbbf24;">
+          <span>Validation Target</span>
+          <span style="font-weight: 700;">Phased Trials</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">18 / 24</div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Conclusion</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .concl-container {
+    padding: 16px 56px 0 56px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .concl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    height: 100%;
+  }
+  .concl-card {
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    padding: 22px 24px;
+    display: flex; align-items: flex-start; gap: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .concl-card.highlight {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(45,212,191,0.08));
+    border-color: var(--border-strong);
+    box-shadow: 0 8px 28px rgba(16, 185, 129, 0.20);
+    grid-column: 1 / 3;
+    align-items: center;
+  }
+  .concl-icon {
+    width: 48px; height: 48px;
+    border-radius: 14px;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .concl-icon .material-icons { font-size: 26px; }
+  .icon-emerald { background: rgba(16, 185, 129, 0.18); color: var(--primary-2); border: 1px solid rgba(16, 185, 129, 0.40); }
+  .icon-teal { background: rgba(45, 212, 191, 0.16); color: var(--accent); border: 1px solid rgba(45, 212, 191, 0.40); }
+  .icon-highlight { background: rgba(16, 185, 129, 0.30); color: var(--primary-2); border: 1.5px solid var(--primary); box-shadow: 0 0 16px rgba(16,185,129,0.35); }
+
+  .concl-text { font-size: 13.5px; line-height: 1.6; color: var(--text); }
+  .accent-emph { color: var(--accent); font-weight: 700; }
+  .emerald-emph { color: var(--primary-2); font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div style="padding: 24px 56px 0 56px;">
+    <div class="eyebrow">18 • Conclusion</div>
+    <div class="flex justify-between items-center" style="margin-top: 4px;">
+      <h1 class="title-h1">Conclusion</h1>
+      <div class="chip"><span class="material-icons mi-14">flag</span> Project Significance &amp; Research Contribution</div>
+    </div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="concl-container">
+    <div class="concl-grid">
+      <div class="concl-card">
+        <span class="concl-icon icon-emerald"><span class="material-icons">memory</span></span>
+        <div class="concl-text">
+          <strong style="color: #34d399; display: block; margin-bottom: 4px; font-size: 14.5px;">Integrated Edge Architecture</strong>
+          FAIN uniquely unifies on-device TinyML (<span class="accent-emph">7-class CNN</span>), license-exempt LoRaWAN (<span class="accent-emph">IN865</span>) telemetry, and solar autonomy into an ultra-low-cost <span class="accent-emph">~₹9,260</span>, <span class="accent-emph">2-node deployable prototype</span>.
+        </div>
+      </div>
+
+      <div class="concl-card">
+        <span class="concl-icon icon-teal"><span class="material-icons">menu_book</span></span>
+        <div class="concl-text">
+          <strong style="color: #2dd4bf; display: block; margin-bottom: 4px; font-size: 14.5px;">Validated Literature Need</strong>
+          A rigorous survey of <span class="accent-emph">68 peer-reviewed sources</span> confirms that existing systems (RFCx, AudioMoth, Silvanet, De Miguel et al., Acharya et al.) fail to combine on-device multi-class inference with zero recurring cellular data fees for Indian forest environments.
+        </div>
+      </div>
+
+      <div class="concl-card">
+        <span class="concl-icon icon-emerald"><span class="material-icons">public</span></span>
+        <div class="concl-text">
+          <strong style="color: #34d399; display: block; margin-bottom: 4px; font-size: 14.5px;">Dual Environmental Impact</strong>
+          Simultaneously delivers <span class="accent-emph">real-time anti-poaching &amp; anti-logging alerts (&lt;10s latency)</span> and continuous, passive <span class="accent-emph">biodiversity health scoring</span> via automated bird-chorus tracking without human surveyors.
+        </div>
+      </div>
+
+      <div class="concl-card">
+        <span class="concl-icon icon-teal"><span class="material-icons">verified</span></span>
+        <div class="concl-text">
+          <strong style="color: #2dd4bf; display: block; margin-bottom: 4px; font-size: 14.5px;">Robust Engineering Benchmarks</strong>
+          Target specifications (<span class="accent-emph">≥90% threat accuracy</span>, <span class="accent-emph">&lt;5% false positive rate</span>, <span class="accent-emph">1.2–2.5 km canopy range</span>) are technically grounded and will undergo empirical calibration during upcoming field trials.
+        </div>
+      </div>
+
+      <div class="concl-card highlight">
+        <span class="concl-icon icon-highlight"><span class="material-icons">forest</span></span>
+        <div class="concl-text" style="font-size: 14.5px;">
+          <strong style="color: #34d399; font-size: 15px;">A Scalable Blueprint for National Wildlife Reserves:</strong>
+          FAIN proves that modern Edge AI and low-power IoT can democratize real-time conservation monitoring across India's tiger reserves and wildlife sanctuaries at a fraction of commercial satellite or cellular patrol budgets.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">22 / 24</div>
+  </div>
+</div>
+</body></html>

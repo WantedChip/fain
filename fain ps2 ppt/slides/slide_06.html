@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Literature Review (2/3)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .lit-container {
+    padding: 14px 56px 0 56px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .lit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: var(--text);
+    background: rgba(8, 24, 18, 0.55);
+    border-radius: 12px;
+    overflow: hidden;
+    table-layout: fixed;
+    border: 1px solid var(--border);
+  }
+  .lit-table thead th {
+    background: rgba(16, 185, 129, 0.22);
+    color: var(--accent);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-strong);
+    line-height: 1.2;
+  }
+  .lit-table tbody td {
+    padding: 22px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.10);
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .lit-table tbody tr:nth-child(odd) td { background: var(--row-stripe); }
+  .lit-table tbody tr:nth-child(even) td { background: var(--row-stripe-2); }
+  .lit-table tbody tr:last-child td { border-bottom: none; }
+  .lit-table .paper-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .lit-table .author {
+    font-family: var(--font-num);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .lit-table .year { color: var(--text-muted); font-size: 11.5px; }
+  .row-num {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    background: rgba(16, 185, 129, 0.22);
+    color: var(--primary-2);
+    font-family: var(--font-num);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 8px;
+    vertical-align: top;
+  }
+  .gap-text { color: var(--alert-2); font-weight: 500; }
+  .synthesis-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.03));
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-left: 4px solid #f59e0b;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <span class="material-icons" data-decor aria-hidden="true" style="position:absolute; bottom:-90px; right:-60px; font-size:260px; color: var(--primary); opacity:0.04;">sensors</span>
+
+  <div style="padding: 24px 56px 0 56px;">
+    <div class="eyebrow">03 • Literature Survey</div>
+    <div class="flex justify-between items-center" style="margin-top: 4px;">
+      <h1 class="title-h1">Literature Review (2/3)</h1>
+      <div class="flex items-center gap-3">
+        <span class="chip"><span class="material-icons mi-14">sensors</span> LoRa Propagation · Soundscape Index</span>
+        <span class="chip"><span class="material-icons mi-14">filter_alt</span> Field Trials · Eco-Acoustics</span>
+      </div>
+    </div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="lit-container">
+    <div class="glass" style="padding: 0; overflow: hidden; border-radius: 12px;">
+      <table class="lit-table">
+        <colgroup>
+          <col style="width: 20%;">
+          <col style="width: 10%;">
+          <col style="width: 17%;">
+          <col style="width: 19%;">
+          <col style="width: 18%;">
+          <col style="width: 16%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Title of Paper</th>
+            <th>Author / Year</th>
+            <th>Objective</th>
+            <th>Methodology Used</th>
+            <th>Key Results</th>
+            <th>Research Gaps</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="row-num">3</span><span class="paper-title">Experimental Evaluation of a LoRa Wildlife Monitoring Network in a Forest Vegetation Area</span></td>
+            <td><span class="author">Ojo</span><br><span class="year">2021</span></td>
+            <td>Empirically evaluate LoRa signal propagation and network performance for wildlife monitoring within a dense forest vegetation environment.</td>
+            <td>Field trials measuring RSSI, SNR, and packet delivery ratio at varying distances and node placements within forest canopy cover, using commercial LoRa transceivers.</td>
+            <td>Found significant signal attenuation from foliage, with reliable range considerably shorter than open-field LoRa specifications; identified optimal antenna placement strategies.</td>
+            <td class="gap-text">Limited to a single forest type and season; does not address adaptive range-optimization strategies across varying canopy density or seasonal foliage change.</td>
+          </tr>
+          <tr>
+            <td><span class="row-num">4</span><span class="paper-title">The Remote Environmental Assessment Laboratory's Acoustic Library (NDSI)</span></td>
+            <td><span class="author">Kasten</span><br><span class="year">2012</span></td>
+            <td>Establish an acoustic archive and introduce the Normalized Difference Soundscape Index (NDSI) for quantifying biophony-to-anthrophony ratios in soundscape ecology.</td>
+            <td>Long-term acoustic recordings analyzed using frequency-band energy ratios to compute NDSI as a proxy for ecosystem health and human disturbance.</td>
+            <td>NDSI successfully differentiated relatively undisturbed soundscapes from human-impacted ones across multiple sites, establishing it as a standard soundscape ecology metric.</td>
+            <td class="gap-text">Index degrades under rain/wind noise contamination; requires ML-assisted filtering for reliable use in noisy or highly variable field conditions.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="synthesis-card">
+      <span class="material-icons" style="color: var(--alert-2); font-size: 24px; flex-shrink: 0;">priority_high</span>
+      <div style="font-size: 13px; line-height: 1.5;">
+        <span style="color: var(--alert-2); font-weight: 700; letter-spacing: 0.04em;">SYNTHESIS &amp; FAIN POSITIONING · </span>
+        <span style="color: var(--text);">Ojo (2021) characterizes the severe foliage attenuation FAIN must engineer around (elevated antennas, adaptive spreading factors); Kasten (2012) supplies the biophony foundation that FAIN automates with TinyML noise suppression.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">06 / 24</div>
+  </div>
+</div>
+</body></html>

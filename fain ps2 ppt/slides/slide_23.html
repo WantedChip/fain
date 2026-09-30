@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — References</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .ref-container {
+    padding: 14px 56px 0 56px;
+    height: 540px;
+    display: flex;
+    gap: 18px;
+    box-sizing: border-box;
+  }
+  .ref-col {
+    flex: 1;
+    border-radius: 16px;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    padding: 18px 20px 16px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  .ref-col-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-strong);
+    margin-bottom: 6px;
+  }
+  .ref-col-header .title {
+    font-family: var(--font-heading);
+    font-size: 12px;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    font-weight: 700;
+  }
+  .ref-col-header .count {
+    font-family: var(--font-num);
+    font-size: 11px;
+    color: var(--primary-2);
+    font-weight: 600;
+  }
+  .ref-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    padding: 4px 0;
+  }
+  .ref-item {
+    display: flex; gap: 10px;
+    padding: 6px 0;
+    border-bottom: 1px dashed rgba(45, 212, 191, 0.08);
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .ref-item:last-of-type { border-bottom: none; }
+  .ref-num {
+    flex-shrink: 0;
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    background: rgba(16, 185, 129, 0.18);
+    color: var(--primary-2);
+    font-family: var(--font-num);
+    font-weight: 700;
+    font-size: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid rgba(16, 185, 129, 0.35);
+    margin-top: 1px;
+  }
+  .ref-text { color: var(--text); }
+  .ref-doi {
+    color: var(--accent);
+    font-family: var(--font-num);
+    font-size: 10px;
+    word-break: break-all;
+  }
+  .ref-strip {
+    padding: 8px 12px;
+    border-radius: 8px;
+    background: rgba(16, 185, 129, 0.10);
+    border: 1px solid rgba(16, 185, 129, 0.25);
+    font-size: 10.5px;
+    font-family: var(--font-num);
+    color: var(--primary-2);
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 6px;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div style="padding: 26px 56px 0 56px;">
+    <div class="flex items-center gap-3 mb-1">
+      <span class="eyebrow">19 • References</span>
+      <span class="soundwave" data-decor>
+        <span style="animation-delay:0s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.6s"></span>
+      </span>
+    </div>
+    <h1 class="title-h1">References</h1>
+  </div>
+
+  <div class="ref-container">
+    <div class="ref-col">
+      <div class="ref-col-header">
+        <span class="title">Literature Citations — Part I</span>
+        <span class="count">[1] – [7]</span>
+      </div>
+      <div class="ref-list">
+        <div class="ref-item">
+          <span class="ref-num">1</span>
+          <span class="ref-text">N. Vuilliomenet, K. E. Jones, D. Wilson, "Future of Edge AI in Biodiversity Monitoring," Springer, 2026, <span class="ref-doi">doi:10.1007/978-3-031-78272-5_10</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">2</span>
+          <span class="ref-text">S. Disabato, G. Canonaco, P. G. Flikkema, M. Roveri, C. Alippi, "Birdsong Detection at the Edge with Deep Learning," IEEE SMARTCOMP, 2021, pp. 224–231, <span class="ref-doi">doi:10.1109/smartcomp52413.2021.00022</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">3</span>
+          <span class="ref-text">S. Dhar, A. Bhattacharya, S. Roy, "Fighting Poaching Through Real-Time Gunshot Detection with Multi-Sensor SAIL Verification," Biodiversity Information Science and Standards, vol. 10, 2025, <span class="ref-doi">doi:10.3897/biss.10.183432</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">4</span>
+          <span class="ref-text">G. De Miguel, M. Zaragoza-Esquerdo, A. Ivars-Palomares, S. Sendra, J. Lloret, "Low-Power Distributed Acoustic Sensor Network for Autonomous Wildlife Monitoring Using LoRa and AI," UBICOMM, 2025</span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">5</span>
+          <span class="ref-text">W. G. Lima et al., "LoRa Technology Propagation Models for IoT Network Planning in the Amazon Regions," MDPI Sensors, vol. 24, no. 5, p. 1621, 2024, <span class="ref-doi">doi:10.3390/s24051621</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">6</span>
+          <span class="ref-text">R. Ansah, M. O. Ojo, S. Giordano, D. Adami, "Characterising Foliage Influence on LoRaWAN Pathloss in a Tropical Vegetative Environment," IET Wireless Sensor Systems, vol. 10, no. 5, pp. 215–224, 2020, <span class="ref-doi">doi:10.1049/iet-wss.2019.0201</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">7</span>
+          <span class="ref-text">E. P. Kasten, S. H. Gage, J. Fox, W. Joo, "The REAL (Remote Environmental Assessment Laboratory) Acoustic Library," Ecological Informatics, 2012</span>
+        </div>
+      </div>
+      <div class="ref-strip">
+        <span>Thematic: Edge AI • Real-Time Acoustics • Foliage Pathloss</span>
+        <span class="material-icons" style="font-size: 15px;">bookmark</span>
+      </div>
+    </div>
+
+    <div class="ref-col">
+      <div class="ref-col-header">
+        <span class="title">Literature Citations — Part II</span>
+        <span class="count">[8] – [14]</span>
+      </div>
+      <div class="ref-list">
+        <div class="ref-item">
+          <span class="ref-num">8</span>
+          <span class="ref-text">J. Sueur, A. Farina, A. Gasc, N. Pieretti, S. Pavoine, "Acoustic Indices for Biodiversity Assessment and Investigation," Acta Acustica united with Acustica, vol. 100, no. 4, pp. 772–781, 2014, <span class="ref-doi">doi:10.3813/aaa.918778</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">9</span>
+          <span class="ref-text">S. Kahl, C. M. Wood, M. Eibl, H. Klinck, "BirdNET: A Deep Learning Solution for Avian Diversity Monitoring," Ecological Informatics, vol. 61, p. 101236, 2021, <span class="ref-doi">doi:10.1016/j.ecoinf.2021.101236</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">10</span>
+          <span class="ref-text">Md. Mohaimenuzzaman, C. Bergmeir, I. West, B. Meyer, "Environmental Sound Classification on the Edge," Pattern Recognition, vol. 133, p. 109025, 2023, <span class="ref-doi">doi:10.1016/j.patcog.2022.109025</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">11</span>
+          <span class="ref-text">L. K. D. Katsis et al., "Automated Detection of Gunshots in Tropical Forests Using Convolutional Neural Networks," Ecological Indicators, vol. 141, p. 109128, 2022, <span class="ref-doi">doi:10.1016/j.ecolind.2022.109128</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">12</span>
+          <span class="ref-text">G. P. Acharya, L. Poluboyina, J. Veeragamoorthi, J. Chattopadhyay, "Low Cost Realization of LoRa Based Real-Time Forest Protection System," Indonesian J. Electrical Eng. &amp; Computer Science, vol. 34, no. 3, pp. 1452–1462, 2024, <span class="ref-doi">doi:10.11591/ijeecs.v34.i3.pp1452-1462</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">13</span>
+          <span class="ref-text">V. Ramesh et al., "Using Passive Acoustic Monitoring to Examine Impacts of Ecological Restoration on Faunal Biodiversity in the Western Ghats," Biological Conservation, vol. 282, p. 110071, 2023, <span class="ref-doi">doi:10.1016/j.biocon.2023.110071</span></span>
+        </div>
+        <div class="ref-item">
+          <span class="ref-num">14</span>
+          <span class="ref-text">Dept. of Telecommunications, Govt. of India, "Use of Low Power Equipment in the 865–868 MHz Band for Short Range Devices (Exemption from Licence) Rules," Gazette of India, G.S.R. 853(E), 2021</span>
+        </div>
+      </div>
+      <div class="ref-strip">
+        <span>Thematic: BirdNET • Bioacoustics • LoRa Infrastructure • WPC IN865</span>
+        <span class="material-icons" style="font-size: 15px;">policy</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">23 / 24</div>
+  </div>
+</div>
+</body></html>

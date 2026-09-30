@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Communication &amp; Packet Design</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .pkt-container {
+    padding: 14px 56px 0 56px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .pkt-grid {
+    display: flex;
+    gap: 20px;
+    height: 380px;
+  }
+  .pkt-card {
+    flex: 1; border-radius: 14px; overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    display: flex; flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+  .pkt-header {
+    padding: 14px 18px;
+    display: flex; align-items: center; justify-content: space-between;
+    color: #f1f8f5;
+  }
+  .pkt-header.amber {
+    background: linear-gradient(90deg, rgba(245,158,11,0.30), rgba(245,158,11,0.12));
+    border-bottom: 1px solid rgba(245,158,11,0.4);
+  }
+  .pkt-header.teal {
+    background: linear-gradient(90deg, rgba(45,212,191,0.30), rgba(45,212,191,0.12));
+    border-bottom: 1px solid rgba(45,212,191,0.4);
+  }
+  .pkt-title-row { display: flex; align-items: center; gap: 10px; }
+  .pkt-title {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 14px; letter-spacing: 0.04em;
+  }
+  .pkt-sub { font-size: 11px; color: #9fb3a8; }
+  .pkt-byte-badge {
+    font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    font-size: 11.5px; padding: 4px 10px; border-radius: 6px;
+  }
+  .badge-amber {
+    background: rgba(245,158,11,0.22);
+    border: 1px solid rgba(245,158,11,0.55);
+    color: #fbbf24;
+  }
+  .badge-teal {
+    background: rgba(45,212,191,0.22);
+    border: 1px solid rgba(45,212,191,0.55);
+    color: #2dd4bf;
+  }
+  .pkt-body { padding: 12px 18px; flex: 1; display: flex; flex-direction: column; justify-content: space-between; }
+  .pkt-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 7px 0; border-bottom: 1px dashed rgba(45,212,191,0.10);
+    font-size: 12.5px;
+  }
+  .pkt-row:last-child { border-bottom: none; }
+  .pkt-label {
+    color: #9fb3a8; font-size: 11px; min-width: 105px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    font-weight: 500;
+  }
+  .pkt-bytes {
+    font-family: var(--font-num);
+    font-size: 10.5px;
+    color: var(--text-dim);
+    min-width: 65px;
+  }
+  .pkt-val { color: #f1f8f5; font-family: 'JetBrains Mono', monospace; font-weight: 500; font-size: 12px; flex: 1; }
+  .pkt-val-amber { color: #fbbf24; font-weight: 600; }
+  .pkt-val-teal { color: #2dd4bf; font-weight: 600; }
+
+  .flow-strip {
+    background: linear-gradient(90deg, rgba(8,24,18,0.7), rgba(16,46,34,0.5), rgba(8,24,18,0.7));
+    border: 1px solid rgba(45,212,191,0.25);
+    border-radius: 12px;
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .flow-stage {
+    display: flex; align-items: center; gap: 10px;
+    color: #f1f8f5;
+  }
+  .flow-icon-wrap {
+    width: 38px; height: 38px; border-radius: 10px;
+    background: rgba(16,185,129,0.18);
+    border: 1px solid rgba(16,185,129,0.5);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .flow-text {
+    font-family: 'Poppins', sans-serif; font-weight: 600;
+    font-size: 12px; color: #34d399; line-height: 1.2;
+  }
+  .flow-sub { font-size: 10.5px; color: #9fb3a8; line-height: 1.2; }
+  .flow-chevron { color: #2dd4bf; font-size: 24px; }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div style="padding: 24px 56px 0 56px;">
+    <div class="eyebrow">10 • Communication Design</div>
+    <div class="flex justify-between items-center" style="margin-top: 4px;">
+      <h1 class="title-h1">Communication &amp; Packet Design</h1>
+      <div class="chip"><span class="material-icons mi-14">wifi_tethering</span> LoRaWAN IN865 • Ultra-Lean Payloads</div>
+    </div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="pkt-container">
+
+    <div class="pkt-grid">
+      <!-- ALERT PACKET CARD -->
+      <div class="pkt-card">
+        <div class="pkt-header amber">
+          <div class="pkt-title-row">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(245,158,11,0.22); border: 1px solid rgba(245,158,11,0.55); display: flex; align-items: center; justify-content: center;">
+              <span class="material-icons" style="color: #fbbf24; font-size: 20px;">notifications_active</span>
+            </div>
+            <div>
+              <div class="pkt-title" style="color: #fbbf24;">ALERT PACKET (0x01)</div>
+              <div class="pkt-sub">Priority uplink upon detected threat (latency &lt;10s)</div>
+            </div>
+          </div>
+          <div class="pkt-byte-badge badge-amber">14 Bytes Payload</div>
+        </div>
+        <div class="pkt-body">
+          <div class="pkt-row">
+            <div class="pkt-label">Packet Type</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val"><span class="pkt-byte-badge badge-amber" style="padding: 1px 6px; font-size: 10.5px;">0x01</span> <span class="pkt-val-amber">ALERT</span></div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Node Identifier</div>
+            <div class="pkt-bytes">[2 Bytes]</div>
+            <div class="pkt-val">0x0001 / 0x0002 (NODE_01 / NODE_02)</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Threat Class</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val pkt-val-amber">Chainsaw / Gunshot / Blast / Engine / Fire</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Inference Conf.</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val pkt-val-amber">Confidence value (0–100% INT8 scale)</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Coordinates</div>
+            <div class="pkt-bytes">[8 Bytes]</div>
+            <div class="pkt-val">Fixed Latitude / Longitude (IEEE 754 Float32 × 2)</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Timestamp</div>
+            <div class="pkt-bytes">[4 Bytes]</div>
+            <div class="pkt-val">Unix epoch second counter (UTC)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ECO PACKET CARD -->
+      <div class="pkt-card">
+        <div class="pkt-header teal">
+          <div class="pkt-title-row">
+            <div style="width: 36px; height: 36px; border-radius: 10px; background: rgba(45,212,191,0.22); border: 1px solid rgba(45,212,191,0.55); display: flex; align-items: center; justify-content: center;">
+              <span class="material-icons" style="color: #2dd4bf; font-size: 20px;">forest</span>
+            </div>
+            <div>
+              <div class="pkt-title" style="color: #2dd4bf;">ECO PACKET (0x02)</div>
+              <div class="pkt-sub">Periodic 60s soundscape heartbeat &amp; biophony index</div>
+            </div>
+          </div>
+          <div class="pkt-byte-badge badge-teal">10 Bytes Payload</div>
+        </div>
+        <div class="pkt-body">
+          <div class="pkt-row">
+            <div class="pkt-label">Packet Type</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val"><span class="pkt-byte-badge badge-teal" style="padding: 1px 6px; font-size: 10.5px;">0x02</span> <span class="pkt-val-teal">ECO</span></div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Node Identifier</div>
+            <div class="pkt-bytes">[2 Bytes]</div>
+            <div class="pkt-val">0x0001 / 0x0002 (NODE_01 / NODE_02)</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Bird Activity</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val pkt-val-teal">Window average P(bird_chorus) [0–255]</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Ambient Energy</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val pkt-val-teal">Background biophony SPL index (dB)</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Health &amp; Battery</div>
+            <div class="pkt-bytes">[1 Byte]</div>
+            <div class="pkt-val">Battery voltage / Solar charge level</div>
+          </div>
+          <div class="pkt-row">
+            <div class="pkt-label">Window Epoch</div>
+            <div class="pkt-bytes">[4 Bytes]</div>
+            <div class="pkt-val">Window close timestamp (Unix epoch)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Communication Pipeline Strip -->
+    <div class="flow-strip">
+      <div class="flow-stage">
+        <div class="flow-icon-wrap"><span class="material-icons" style="color: #34d399; font-size: 20px;">wifi_tethering</span></div>
+        <div>
+          <div class="flow-text">LoRa Physical Uplink</div>
+          <div class="flow-sub">IN865 (865–867 MHz) · SF7–SF10</div>
+        </div>
+      </div>
+      <span class="material-icons flow-chevron">chevron_right</span>
+      <div class="flow-stage">
+        <div class="flow-icon-wrap"><span class="material-icons" style="color: #34d399; font-size: 20px;">router</span></div>
+        <div>
+          <div class="flow-text">Gateway Demodulation</div>
+          <div class="flow-sub">Raspberry Pi 4 + SX1276 HAT</div>
+        </div>
+      </div>
+      <span class="material-icons flow-chevron">chevron_right</span>
+      <div class="flow-stage">
+        <div class="flow-icon-wrap"><span class="material-icons" style="color: #34d399; font-size: 20px;">hub</span></div>
+        <div>
+          <div class="flow-text">MQTT Messaging Bus</div>
+          <div class="flow-sub">fain/nodes/{id}/alert | eco</div>
+        </div>
+      </div>
+      <span class="material-icons flow-chevron">chevron_right</span>
+      <div class="flow-stage">
+        <div class="flow-icon-wrap"><span class="material-icons" style="color: #34d399; font-size: 20px;">dashboard</span></div>
+        <div>
+          <div class="flow-text">Ranger Dashboard</div>
+          <div class="flow-sub">Instant Map Ping + Fast2SMS</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>FAIN • Progress Seminar</div>
+    <div>14 / 24</div>
+  </div>
+
+</div>
+</body></html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Applications</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .app-container {
+    padding: 14px 56px 0 56px;
+    height: 540px;
+    display: flex;
+    gap: 22px;
+    box-sizing: border-box;
+  }
+  .app-col {
+    flex: 1;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  .app-header {
+    padding: 16px 22px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .app-header .material-icons { font-size: 24px; }
+  .app-header .badge {
+    margin-left: auto;
+    padding: 3px 9px;
+    border-radius: 6px;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .app-body {
+    padding: 16px 22px 18px 22px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .app-item {
+    display: flex; align-items: flex-start; gap: 14px;
+    padding: 10px 0;
+    font-size: 13.5px;
+    line-height: 1.5;
+    color: var(--text);
+    border-bottom: 1px dashed rgba(45, 212, 191, 0.08);
+  }
+  .app-item:last-of-type { border-bottom: none; }
+  .app-icon-circle {
+    width: 38px; height: 38px;
+    border-radius: 10px;
+    display: inline-flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .app-icon-circle .material-icons { font-size: 20px; }
+  .icon-emerald { background: rgba(16, 185, 129, 0.18); color: var(--primary-2); border: 1px solid rgba(16, 185, 129, 0.40); }
+  .icon-amber { background: rgba(245, 158, 11, 0.16); color: var(--alert-2); border: 1px solid rgba(245, 158, 11, 0.40); }
+  .icon-teal { background: rgba(45, 212, 191, 0.16); color: var(--accent); border: 1px solid rgba(45, 212, 191, 0.40); }
+
+  .col-emerald .app-header { background: linear-gradient(90deg, rgba(16,185,129,0.28), rgba(16,185,129,0.06)); color: var(--primary-2); }
+  .col-emerald .app-header .badge { background: rgba(16,185,129,0.18); color: var(--primary-2); border: 1px solid rgba(16,185,129,0.35); }
+  .col-amber .app-header { background: linear-gradient(90deg, rgba(245,158,11,0.26), rgba(45,212,191,0.08)); color: var(--alert-2); }
+  .col-amber .app-header .badge { background: rgba(245,158,11,0.20); color: var(--alert-2); border: 1px solid rgba(245,158,11,0.35); }
+
+  .accent-emph { color: var(--accent); font-weight: 600; }
+  .target-strip {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 500;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div style="padding: 26px 56px 0 56px;">
+    <div class="flex items-center gap-3 mb-1">
+      <span class="eyebrow">17 • Applications</span>
+      <span class="soundwave" data-decor>
+        <span style="animation-delay:0s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.6s"></span>
+      </span>
+    </div>
+    <h1 class="title-h1">Applications &amp; Expected Impact</h1>
+  </div>
+
+  <div class="app-container">
+    <div class="app-col col-emerald">
+      <div class="app-header">
+        <span class="material-icons">apps</span>
+        <span>Potential Applications</span>
+        <span class="badge">5 Core Areas</span>
+      </div>
+      <div class="app-body">
+        <div class="app-item">
+          <span class="app-icon-circle icon-emerald"><span class="material-icons">shield</span></span>
+          <div>Real-time anti-poaching &amp; anti-logging surveillance for state forest departments in tiger/wildlife reserves.</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-emerald"><span class="material-icons">eco</span></span>
+          <div>Continuous biodiversity health monitoring for research partners (<span class="accent-emph">WWF India</span>, <span class="accent-emph">BNHS</span>, Wildlife Conservation Trust, <span class="accent-emph">eBird India</span>).</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-emerald"><span class="material-icons">local_fire_department</span></span>
+          <div>Early-stage forest fire detection via crackle-frequency acoustic signatures before smoke plumes breach the canopy.</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-emerald"><span class="material-icons">graphic_eq</span></span>
+          <div>Soundscape &amp; anthropophony noise pollution mapping for biosphere reserve buffer zones and wildlife corridors.</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-emerald"><span class="material-icons">device_hub</span></span>
+          <div>Extensible to species-level bird identification, optical camera-trap triggers (<span class="accent-emph">ESP32-CAM</span>), and mesh LoRa networking.</div>
+        </div>
+
+        <div class="target-strip" style="background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.30); color: var(--primary-2);">
+          <span>Deployers: State Forest Depts • Wildlife Sanctuaries • Conservation NGOs</span>
+          <span class="material-icons" style="font-size: 16px;">verified</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="app-col col-amber">
+      <div class="app-header">
+        <span class="material-icons">insights</span>
+        <span>Expected Impact</span>
+        <span class="badge">4 Key Gains</span>
+      </div>
+      <div class="app-body">
+        <div class="app-item">
+          <span class="app-icon-circle icon-amber"><span class="material-icons">speed</span></span>
+          <div>Reduces illegal incident detection and ranger dispatch latency from days/weeks (satellite &amp; foot patrols) to under <span class="accent-emph">10 seconds</span>.</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-teal"><span class="material-icons">schedule</span></span>
+          <div>Enables autonomous <span class="accent-emph">24/7/365</span> acoustic vigil across dense forest canopies vs. intermittent guard patrols and manual bio-surveys.</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-amber"><span class="material-icons">payments</span></span>
+          <div><span class="accent-emph">Zero recurring cellular/satellite data costs</span> — license-exempt LoRaWAN IN865 ensures long-term economic viability.</div>
+        </div>
+        <div class="app-item">
+          <span class="app-icon-circle icon-teal"><span class="material-icons">science</span></span>
+          <div>Generates continuous, synchronized acoustic soundscape records providing high-fidelity ecological data to researchers and policy makers.</div>
+        </div>
+
+        <div class="target-strip" style="background: rgba(245,158,11,0.12); border: 1px solid rgba(245,158,11,0.35); color: #fbbf24;">
+          <span>Outcome: Immediate Threat Interception • Automated Forest Health Index</span>
+          <span class="material-icons" style="font-size: 16px;">trending_up</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">21 / 24</div>
+  </div>
+</div>
+</body></html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Motivation</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .mot-container {
+    padding: 14px 64px 0 64px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+    width: 100%;
+    height: 100%;
+  }
+  .col-card {
+    padding: 28px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+  .col-card .head-row {
+    display: flex; align-items: center; gap: 14px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+  .col-card .icon-pill {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 48px; height: 48px; border-radius: 12px;
+    background: rgba(45, 212, 191, 0.12);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+  .col-card .card-title {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .col-card .card-headline {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.25;
+    margin-top: 2px;
+  }
+  .bullet-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    margin-top: 16px;
+    gap: 14px;
+  }
+  .bullet-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--text);
+    background: rgba(8, 24, 18, 0.45);
+    border: 1px solid rgba(45, 212, 191, 0.14);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.20);
+    flex: 1;
+  }
+  .bullet-icon {
+    flex-shrink: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: rgba(45, 212, 191, 0.15);
+    color: var(--accent);
+    border: 1px solid rgba(45, 212, 191, 0.35);
+    margin-top: 2px;
+  }
+  .bullet-icon.emerald {
+    background: rgba(16, 185, 129, 0.18);
+    color: var(--primary-2);
+    border: 1px solid rgba(16, 185, 129, 0.35);
+  }
+  .sdg-chip {
+    display: inline-block;
+    padding: 3px 9px;
+    border-radius: 6px;
+    background: rgba(45, 212, 191, 0.12);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 11.5px;
+    font-weight: 700;
+    margin: 0 4px;
+    letter-spacing: 0.04em;
+  }
+  .em-accent { color: var(--accent); font-weight: 600; }
+  .em-emerald { color: var(--primary-2); font-weight: 600; }
+  .ghost-icon {
+    position: absolute; right: -20px; bottom: -30px;
+    color: var(--primary);
+    opacity: 0.05;
+    font-size: 210px;
+    pointer-events: none;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <span class="material-icons" data-decor aria-hidden="true" style="position:absolute; top:-60px; left:-40px; font-size:240px; color: var(--primary); opacity:0.04;">park</span>
+
+  <div style="padding: 24px 64px 0 64px;">
+    <div class="eyebrow">02 • Motivation</div>
+    <div class="flex items-center justify-between" style="margin-top: 4px;">
+      <h1 class="title-h1">Motivation</h1>
+      <div class="chip"><span class="material-icons mi-14">bolt</span> Engineering Drivers &amp; Conservation Urgency</div>
+    </div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="mot-container">
+    <div class="two-col">
+
+      <div class="glass col-card">
+        <div class="head-row">
+          <span class="icon-pill"><span class="material-icons mi-24">lightbulb</span></span>
+          <div>
+            <div class="card-title">Engineering Focus</div>
+            <div class="card-headline">Motivation Behind Project Selection</div>
+          </div>
+        </div>
+        <div class="bullet-list">
+          <div class="bullet-item">
+            <span class="bullet-icon"><span class="material-icons mi-20">play_arrow</span></span>
+            <span>Passionate commitment to applying <span class="em-accent">embedded TinyML and edge computing</span> directly to critical environmental conservation challenges with tangible field impact.</span>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon"><span class="material-icons mi-20">play_arrow</span></span>
+            <span>Existing commercial bioacoustic solutions are either <span class="em-accent">cellular/cloud-dependent</span> (failing in deep, network-dead Indian reserves) or <span class="em-accent">passive offline loggers</span> that offer zero real-time intervention capability.</span>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon"><span class="material-icons mi-20">play_arrow</span></span>
+            <span>Exceptional learning opportunity to architect and build a complete end-to-end system: <span class="em-accent">custom audio DSP, quantized INT8 neural inference, license-exempt LoRaWAN RF, and full-stack GIS dashboard</span>.</span>
+          </div>
+        </div>
+        <span class="material-icons ghost-icon" data-decor aria-hidden="true">lightbulb</span>
+      </div>
+
+      <div class="glass col-card">
+        <div class="head-row">
+          <span class="icon-pill"><span class="material-icons mi-24">public</span></span>
+          <div>
+            <div class="card-title">Societal Impact</div>
+            <div class="card-headline">Real-World Relevance &amp; Stakeholders</div>
+          </div>
+        </div>
+        <div class="bullet-list">
+          <div class="bullet-item">
+            <span class="bullet-icon emerald"><span class="material-icons mi-20">eco</span></span>
+            <span>Directly equips State Forest Departments and frontline rangers with <span class="em-emerald">sub-10-second alerts</span> for chainsaw poaching, illegal mining, and gunshot activity across vast sanctuaries.</span>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon emerald"><span class="material-icons mi-20">eco</span></span>
+            <span>Provides research partners (<span class="em-emerald">WWF-India, BNHS, Wildlife Conservation Trust</span>) with <span class="em-emerald">24/7 continuous soundscape intelligence</span>, replacing costly and episodic manual bird census surveys.</span>
+          </div>
+          <div class="bullet-item">
+            <span class="bullet-icon emerald"><span class="material-icons mi-20">eco</span></span>
+            <span>Directly advances United Nations Sustainable Development Goals: <span class="sdg-chip">SDG 15</span><span style="color: var(--text-muted);">(Life on Land)</span>, <span class="sdg-chip">SDG 9</span><span style="color: var(--text-muted);">(Innovation &amp; Infrastructure)</span>, and <span class="sdg-chip">SDG 13</span><span style="color: var(--text-muted);">(Climate Action)</span>.</span>
+          </div>
+        </div>
+        <span class="material-icons ghost-icon" data-decor aria-hidden="true">public</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">04 / 24</div>
+  </div>
+</div>
+</body></html>

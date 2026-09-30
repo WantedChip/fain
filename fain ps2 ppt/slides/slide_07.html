@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Literature Review (3/3)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .lit-container {
+    padding: 14px 56px 0 56px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .lit-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    color: var(--text);
+    background: rgba(8, 24, 18, 0.55);
+    border-radius: 12px;
+    overflow: hidden;
+    table-layout: fixed;
+    border: 1px solid var(--border);
+  }
+  .lit-table thead th {
+    background: rgba(16, 185, 129, 0.22);
+    color: var(--accent);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    padding: 14px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-strong);
+    line-height: 1.2;
+  }
+  .lit-table tbody td {
+    padding: 22px 14px;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.10);
+    line-height: 1.6;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+  .lit-table tbody tr:nth-child(odd) td { background: var(--row-stripe); }
+  .lit-table tbody tr:nth-child(even) td { background: var(--row-stripe-2); }
+  .lit-table tbody tr:last-child td { border-bottom: none; }
+  .lit-table .paper-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.4;
+  }
+  .lit-table .author {
+    font-family: var(--font-num);
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .lit-table .year { color: var(--text-muted); font-size: 11.5px; }
+  .row-num {
+    display: inline-block;
+    width: 20px; height: 20px;
+    border-radius: 5px;
+    background: rgba(16, 185, 129, 0.22);
+    color: var(--primary-2);
+    font-family: var(--font-num);
+    font-size: 11px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 20px;
+    margin-right: 8px;
+    vertical-align: top;
+  }
+  .gap-text { color: var(--alert-2); font-weight: 500; }
+  .synthesis-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 22px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(245, 158, 11, 0.12), rgba(245, 158, 11, 0.03));
+    border: 1px solid rgba(245, 158, 11, 0.35);
+    border-left: 4px solid #f59e0b;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <span class="material-icons" data-decor aria-hidden="true" style="position:absolute; bottom:-90px; right:-60px; font-size:260px; color: var(--primary); opacity:0.04;">shield</span>
+
+  <div style="padding: 24px 56px 0 56px;">
+    <div class="eyebrow">03 • Literature Survey</div>
+    <div class="flex justify-between items-center" style="margin-top: 4px;">
+      <h1 class="title-h1">Literature Review (3/3)</h1>
+      <div class="flex items-center gap-3">
+        <span class="chip"><span class="material-icons mi-14">campaign</span> Gunshot Detection · Anti-Poaching</span>
+        <span class="chip"><span class="material-icons mi-14">wb_sunny</span> Solar · LoRa Forest System</span>
+      </div>
+    </div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="lit-container">
+    <div class="glass" style="padding: 0; overflow: hidden; border-radius: 12px;">
+      <table class="lit-table">
+        <colgroup>
+          <col style="width: 20%;">
+          <col style="width: 10%;">
+          <col style="width: 17%;">
+          <col style="width: 19%;">
+          <col style="width: 18%;">
+          <col style="width: 16%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Title of Paper</th>
+            <th>Author / Year</th>
+            <th>Objective</th>
+            <th>Methodology Used</th>
+            <th>Key Results</th>
+            <th>Research Gaps</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="row-num">5</span><span class="paper-title">Fighting Poaching Through Real-Time Gunshot Detection with Multi-Sensor SAIL Verification</span></td>
+            <td><span class="author">Dhar</span><br><span class="year">2025</span></td>
+            <td>Develop a real-time gunshot detection system for anti-poaching applications, using multi-sensor cross-verification to reduce false alarms.</td>
+            <td>Acoustic gunshot signatures classified via machine learning and cross-verified across multiple sensor nodes (SAIL) before triggering an alert; tested against known false-positive sources.</td>
+            <td>Multi-sensor corroboration substantially reduced false-positive alert rates compared to single-sensor detection, while maintaining high true-positive gunshot detection.</td>
+            <td class="gap-text">Assumes dense multi-sensor coverage per zone; class imbalance between rare gunshot events and abundant ambient sound remains a persistent training challenge.</td>
+          </tr>
+          <tr>
+            <td><span class="row-num">6</span><span class="paper-title">An Efficient and Low-Cost Realization of LoRa-Based Real-Time Forest Protection System</span></td>
+            <td><span class="author">Acharya</span><br><span class="year">2024</span></td>
+            <td>Design and deploy a low-cost, solar-powered, LoRa-based real-time forest protection system for an Indian wildlife sanctuary.</td>
+            <td>PIR-motion and amplitude-threshold sensor nodes transmit alerts over LoRa to a central gateway; system deployed and field-tested at Eturnagaram Wildlife Sanctuary, Telangana.</td>
+            <td>Demonstrated a functional, affordable LoRa-based alert system for an Indian forest deployment, validating solar-powered LoRa nodes as a low-cost surveillance option.</td>
+            <td class="gap-text">Relies on simple thresholding with no neural/ML classification, leading to high false-trigger rates from non-threat motion and foliage noise.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="synthesis-card">
+      <span class="material-icons" style="color: var(--alert-2); font-size: 24px; flex-shrink: 0;">priority_high</span>
+      <div style="font-size: 13px; line-height: 1.5;">
+        <span style="color: var(--alert-2); font-weight: 700; letter-spacing: 0.04em;">SYNTHESIS &amp; FAIN POSITIONING · </span>
+        <span style="color: var(--text);">Dhar (2025) confirms multi-sensor ML cuts false alarms; Acharya (2024) proves solar-LoRa viability in Indian sanctuaries. FAIN combines both: robust solar hardware with on-device 7-class TinyML inference for intelligent, zero-false-alarm surveillance.</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">07 / 24</div>
+  </div>
+</div>
+</body></html>

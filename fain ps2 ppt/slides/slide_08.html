@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Problem Statement</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .hero-card {
+    position: relative;
+    padding: 56px 64px 48px 64px;
+    border-radius: 18px;
+    background: linear-gradient(135deg, rgba(16, 46, 34, 0.85), rgba(8, 24, 18, 0.85));
+    border: 1px solid var(--border-strong);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(45, 212, 191, 0.10);
+    width: 100%;
+    overflow: hidden;
+    margin: auto 0;
+  }
+  .hero-card::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 24px; bottom: 24px;
+    width: 6px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.5);
+  }
+  .hero-quote {
+    font-family: var(--font-heading);
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.55;
+    letter-spacing: -0.005em;
+    text-align: center;
+  }
+  .em-accent { color: var(--accent); font-weight: 700; }
+  .em-emerald { color: var(--primary-2); font-weight: 700; }
+  .hero-corner-icon {
+    position: absolute;
+    bottom: 16px; right: 22px;
+    color: var(--primary);
+    opacity: 0.18;
+    font-size: 88px;
+  }
+  .open-quote, .close-quote {
+    font-family: var(--font-heading);
+    font-size: 64px;
+    line-height: 0;
+    color: var(--primary);
+    opacity: 0.40;
+    vertical-align: middle;
+    margin: 0 6px;
+  }
+  .sw-bar {
+    display: flex; align-items: center; gap: 3px; height: 18px;
+  }
+  .sw-bar span {
+    width: 3px; border-radius: 2px;
+    background: linear-gradient(180deg, var(--accent), var(--primary));
+    opacity: 0.7;
+  }
+  .meta-row {
+    display: flex; align-items: center; justify-content: space-between;
+    margin-top: 32px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border);
+  }
+  .meta-pill {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: rgba(16, 185, 129, 0.10);
+    border: 1px solid var(--border);
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="slide" style="padding: 40px 80px 52px; display: flex; flex-direction: column; justify-content: space-between; height: 720px;">
+  <span class="material-icons" data-decor aria-hidden="true" style="position:absolute; top:-50px; left:-40px; font-size:240px; color: var(--primary); opacity:0.05;">forest</span>
+  <span class="material-icons" data-decor aria-hidden="true" style="position:absolute; bottom:-60px; right:-50px; font-size:280px; color: var(--accent); opacity:0.04;">campaign</span>
+
+  <div class="flex justify-between items-center">
+    <div>
+      <div class="eyebrow">04 • Problem Statement</div>
+      <h1 class="title-h1" style="margin-top: 4px;">Problem Statement</h1>
+    </div>
+    <div class="soundwave" data-decor aria-hidden="true" style="height: 22px;">
+      <span style="height:8px"></span><span style="height:16px"></span><span style="height:22px"></span><span style="height:12px"></span><span style="height:18px"></span><span style="height:9px"></span><span style="height:14px"></span><span style="height:20px"></span><span style="height:7px"></span><span style="height:16px"></span><span style="height:22px"></span><span style="height:11px"></span><span style="height:18px"></span>
+    </div>
+  </div>
+
+  <div class="hero-card">
+    <div class="sw-bar" data-decor aria-hidden="true" style="position: absolute; top: 18px; right: 56px;">
+      <span style="height:5px"></span><span style="height:10px"></span><span style="height:14px"></span><span style="height:7px"></span><span style="height:12px"></span><span style="height:5px"></span><span style="height:9px"></span><span style="height:14px"></span><span style="height:6px"></span><span style="height:11px"></span><span style="height:5px"></span><span style="height:8px"></span><span style="height:14px"></span><span style="height:6px"></span>
+    </div>
+
+    <div class="hero-quote">
+      <span class="open-quote">"</span>To design and develop a <span class="em-emerald">solar-powered</span>, <span class="em-accent">distributed acoustic sensor network</span> capable of autonomously detecting illegal forest activities (<span class="em-accent">chainsaw logging, gunshots, mining blasts, and fires</span>) in <span class="em-emerald">real time</span>, while continuously monitoring <span class="em-accent">biodiversity health through bird-chorus analysis</span>.<span class="close-quote">"</span>
+    </div>
+
+    <div class="sw-bar" data-decor aria-hidden="true" style="position: absolute; bottom: 18px; left: 60px;">
+      <span style="height:6px"></span><span style="height:11px"></span><span style="height:14px"></span><span style="height:7px"></span><span style="height:12px"></span><span style="height:5px"></span><span style="height:9px"></span><span style="height:14px"></span><span style="height:6px"></span><span style="height:11px"></span><span style="height:5px"></span><span style="height:8px"></span><span style="height:14px"></span><span style="height:6px"></span>
+    </div>
+
+    <span class="material-icons hero-corner-icon" data-decor aria-hidden="true">forest</span>
+
+    <div class="meta-row">
+      <div class="flex items-center gap-3">
+        <span class="meta-pill"><span class="material-icons mi-14">solar_power</span>Solar-Powered</span>
+        <span class="meta-pill"><span class="material-icons mi-14">sensors</span>Acoustic Sensing</span>
+        <span class="meta-pill"><span class="material-icons mi-14">hub</span>Distributed Network</span>
+        <span class="meta-pill"><span class="material-icons mi-14">pets</span>Biodiversity Health</span>
+      </div>
+      <div style="font-family: var(--font-num); font-size: 11.5px; color: var(--text-muted); letter-spacing: 0.06em;">FAIN · Major Project-I</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">08 / 24</div>
+  </div>
+</div>
+</body></html>

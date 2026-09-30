@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — SDGs Mapping</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .sdg-container {
+    padding: 16px 56px 0 56px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .role-badge {
+    display: inline-flex; align-items: center; gap: 5px;
+    padding: 6px 14px; border-radius: 999px;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .role-primary {
+    background: rgba(16,185,129,0.18);
+    border: 1px solid rgba(16,185,129,0.55);
+    color: #34d399;
+  }
+  .role-secondary {
+    background: rgba(45,212,191,0.18);
+    border: 1px solid rgba(45,212,191,0.55);
+    color: #2dd4bf;
+  }
+  .role-tertiary {
+    background: rgba(245,158,11,0.18);
+    border: 1px solid rgba(245,158,11,0.55);
+    color: #fbbf24;
+  }
+  .sdg-icon-ring {
+    width: 44px; height: 44px; border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    background: rgba(16,185,129,0.14);
+    border: 1.5px solid rgba(45,212,191,0.45);
+    flex-shrink: 0;
+  }
+  .sdg-row-icon-amber {
+    background: rgba(245,158,11,0.14);
+    border-color: rgba(245,158,11,0.5);
+  }
+  .sdg-row-icon-teal {
+    background: rgba(45,212,191,0.14);
+    border-color: rgba(45,212,191,0.5);
+  }
+  .sdg-tbl {
+    width: 100%;
+    border-collapse: collapse;
+    background: rgba(8,24,18,0.55);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+  .sdg-tbl thead th {
+    background: rgba(16, 185, 129, 0.22);
+    color: var(--accent);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+    padding: 14px 18px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  .sdg-tbl tbody td {
+    padding: 20px 18px;
+    vertical-align: middle;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.10);
+    font-size: 13px;
+    line-height: 1.55;
+    color: var(--text);
+  }
+  .sdg-tbl tbody tr:nth-child(odd) td { background: var(--row-stripe); }
+  .sdg-tbl tbody tr:nth-child(even) td { background: var(--row-stripe-2); }
+  .sdg-tbl tbody tr:last-child td { border-bottom: none; }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div style="padding: 24px 56px 0 56px;">
+    <div class="eyebrow">06 • SDG Mapping</div>
+    <div class="flex justify-between items-center" style="margin-top: 4px;">
+      <h1 class="title-h1">United Nations SDGs Mapping</h1>
+      <div style="display: flex; gap: 8px; align-items: center;">
+        <span class="chip" style="font-size: 11px;"><span class="material-icons mi-14">public</span> UN Agenda 2030 Alignment</span>
+      </div>
+    </div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="sdg-container">
+    <div class="glass" style="padding: 0; overflow: hidden; border-radius: 12px;">
+      <table class="sdg-tbl">
+        <colgroup>
+          <col style="width: 36%;">
+          <col style="width: 16%;">
+          <col style="width: 48%;">
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Sustainable Development Goal</th>
+            <th>Role</th>
+            <th>Project Justification &amp; Impact</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div class="sdg-icon-ring">
+                  <span class="material-icons" style="color: #34d399; font-size: 22px;">park</span>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #f1f8f5; font-size: 14.5px;">SDG 15</div>
+                  <div style="color: #9fb3a8; font-size: 11.5px;">Life on Land</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-primary">Primary</span></td>
+            <td>Autonomous acoustic surveillance detects illegal deforestation &amp; poaching events in under 10s; continuous bird-chorus monitoring provides objective biodiversity metrics.</td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div class="sdg-icon-ring">
+                  <span class="material-icons" style="color: #34d399; font-size: 22px;">engineering</span>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #f1f8f5; font-size: 14.5px;">SDG 9</div>
+                  <div style="color: #9fb3a8; font-size: 11.5px;">Industry, Innovation &amp; Infrastructure</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-primary">Primary</span></td>
+            <td>Novel low-cost IoT architecture combining on-device TinyML with LoRaWAN (IN865), operating entirely off-grid without recurring telecom fees.</td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div class="sdg-icon-ring sdg-row-icon-teal">
+                  <span class="material-icons" style="color: #2dd4bf; font-size: 22px;">thermostat</span>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #f1f8f5; font-size: 14.5px;">SDG 13</div>
+                  <div style="color: #9fb3a8; font-size: 11.5px;">Climate Action</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-secondary">Secondary</span></td>
+            <td>Preventing illegal tree felling directly preserves carbon-sink capacity; early acoustic fire-crackle detection minimizes wildfire carbon emissions.</td>
+          </tr>
+          <tr>
+            <td>
+              <div style="display: flex; align-items: center; gap: 14px;">
+                <div class="sdg-icon-ring sdg-row-icon-amber">
+                  <span class="material-icons" style="color: #fbbf24; font-size: 22px;">location_city</span>
+                </div>
+                <div>
+                  <div style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #f1f8f5; font-size: 14.5px;">SDG 11</div>
+                  <div style="color: #9fb3a8; font-size: 11.5px;">Sustainable Cities &amp; Communities</div>
+                </div>
+              </div>
+            </td>
+            <td><span class="role-badge role-tertiary">Tertiary</span></td>
+            <td>Acoustic soundscape mapping aids urban-forest buffer-zone management (e.g. Aarey Colony) to balance human settlement noise with wildlife corridors.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div style="display: flex; align-items: center; gap: 16px; padding: 12px 18px; background: rgba(8,24,18,0.65); border: 1px solid rgba(45,212,191,0.22); border-radius: 12px;">
+      <div style="font-size: 11px; color: #6b8077; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 600;">Alignment Tiers:</div>
+      <span class="role-badge role-primary">Primary Impact</span>
+      <span class="role-badge role-secondary">Secondary Support</span>
+      <span class="role-badge role-tertiary">Tertiary Benefit</span>
+      <div style="margin-left: auto; font-size: 11.5px; color: #9fb3a8; font-style: italic;">Directly addresses national conservation priorities under MoEFCC guidelines.</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>FAIN • Progress Seminar</div>
+    <div>10 / 24</div>
+  </div>
+
+</div>
+</body></html>

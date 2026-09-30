@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Software Proof-of-Concept</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .sim-container {
+    padding: 12px 56px 0 56px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .step-card {
+    flex: 1; border-radius: 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    backdrop-filter: blur(8px);
+    padding: 12px 8px;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .step-num-circle {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(16,185,129,0.20);
+    border: 2px solid #10b981;
+    color: #34d399;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 13px;
+    display: inline-flex; align-items: center; justify-content: center;
+    margin: 0 auto 5px auto;
+    box-shadow: 0 0 12px rgba(16,185,129,0.25);
+  }
+  .step-icon-wrap {
+    width: 28px; height: 28px; border-radius: 8px;
+    background: rgba(45,212,191,0.15);
+    border: 1px solid rgba(45,212,191,0.35);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 4px;
+  }
+  .step-label {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 11px; color: #2dd4bf; letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .step-body {
+    font-size: 10.5px; color: #f1f8f5; line-height: 1.35; margin-top: 3px;
+  }
+  .step-chevron {
+    color: #34d399; font-size: 22px; flex-shrink: 0;
+    display: flex; align-items: center; opacity: 0.7;
+  }
+  .sim-link-card {
+    background: linear-gradient(135deg, rgba(16,185,129,0.22), rgba(45,212,191,0.12));
+    border: 1.5px solid rgba(45,212,191,0.55);
+    border-radius: 14px;
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+    text-decoration: none;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .sim-icon-glow {
+    width: 44px; height: 44px; border-radius: 12px;
+    background: rgba(45,212,191,0.20);
+    border: 1px solid rgba(45,212,191,0.6);
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 0 14px rgba(45,212,191,0.3);
+  }
+  .sim-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 18px; border-radius: 999px;
+    background: linear-gradient(90deg, #10b981, #2dd4bf);
+    color: #061812; font-family: 'Poppins', sans-serif;
+    font-weight: 700; font-size: 12px; letter-spacing: 0.06em;
+    text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(16,185,129,0.4);
+  }
+  .demo-card {
+    flex: 1; border-radius: 12px;
+    background: var(--surface);
+    backdrop-filter: blur(8px);
+    padding: 14px 18px;
+    border: 1px solid var(--border);
+  }
+  .demo-card.accent { border-left: 4px solid #2dd4bf; }
+  .demo-card.emerald { border-left: 4px solid #10b981; }
+  .demo-header {
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 12px; letter-spacing: 0.10em; text-transform: uppercase;
+  }
+  .disclaimer-box {
+    background: linear-gradient(90deg, rgba(245,158,11,0.18), rgba(245,158,11,0.06));
+    border: 1px solid rgba(245,158,11,0.55);
+    border-left: 5px solid #f59e0b;
+    border-radius: 12px;
+    padding: 12px 18px;
+    display: flex; align-items: center; gap: 14px;
+    box-shadow: 0 4px 16px rgba(245,158,11,0.12);
+  }
+  .badge-corner {
+    position: absolute; top: 22px; right: 56px;
+    background: rgba(245,158,11,0.15);
+    border: 1px solid rgba(245,158,11,0.55);
+    color: #fbbf24;
+    padding: 4px 12px; border-radius: 999px;
+    font-family: 'Poppins', sans-serif; font-weight: 700;
+    font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .amber-bold { color: #fbbf24; font-weight: 700; }
+  .emerald-bold { color: #34d399; font-weight: 700; }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div style="padding: 22px 56px 0 56px;">
+    <div class="eyebrow">11 • Software PoC</div>
+    <h1 class="title-h1" style="margin-top: 4px;">Software Proof-of-Concept</h1>
+    <div style="font-size: 11.5px; color: #9fb3a8; margin-top: 4px;">End-to-end data pipeline is validated through active cloud simulation before physical hardware assembly</div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="badge-corner">
+    <span class="material-icons" style="font-size: 13px;">science</span>
+    SIMULATION / PROOF OF CONCEPT
+  </div>
+
+  <div class="sim-container">
+
+    <!-- Live Web Simulation Link Card -->
+    <a href="https://fain.sohamlabs.workers.dev" target="_blank" style="text-decoration: none; display: block;">
+      <div class="sim-link-card">
+        <div style="display: flex; align-items: center; gap: 14px;">
+          <div class="sim-icon-glow">
+            <span class="material-icons" style="color: #2dd4bf; font-size: 24px;">travel_explore</span>
+          </div>
+          <div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 13.5px; color: #f1f8f5; letter-spacing: 0.04em;">
+                LIVE CLOUD SIMULATOR &amp; RANGER DIGITAL TWIN
+              </span>
+              <span class="chip" style="padding: 1px 8px; font-size: 9.5px; border-color: rgba(45,212,191,0.5);">Active Web App</span>
+            </div>
+            <div style="font-family: var(--font-num); font-size: 13px; color: #2dd4bf; margin-top: 3px; font-weight: 500;">
+              https://fain.sohamlabs.workers.dev
+            </div>
+          </div>
+        </div>
+        <div class="sim-btn">
+          <span>Launch Simulation</span>
+          <span class="material-icons" style="font-size: 16px;">open_in_new</span>
+        </div>
+      </div>
+    </a>
+
+    <!-- Step pipeline -->
+    <div style="display: flex; align-items: stretch; gap: 4px;">
+      <div class="step-card">
+        <div class="step-num-circle">01</div>
+        <div class="step-icon-wrap"><span class="material-icons" style="color: #2dd4bf; font-size: 16px;">sensors</span></div>
+        <div class="step-label">Node</div>
+        <div class="step-body">Acoustic event <em style="color: #fbbf24; font-style: normal; font-weight: 600;">(simulated)</em></div>
+      </div>
+      <div class="step-chevron"><span class="material-icons" style="font-size: 22px;">chevron_right</span></div>
+      <div class="step-card">
+        <div class="step-num-circle">02</div>
+        <div class="step-icon-wrap"><span class="material-icons" style="color: #2dd4bf; font-size: 16px;">memory</span></div>
+        <div class="step-label">TinyML</div>
+        <div class="step-body">Class + confidence <em style="color: #fbbf24; font-style: normal; font-weight: 600;">(simulated)</em></div>
+      </div>
+      <div class="step-chevron"><span class="material-icons" style="font-size: 22px;">chevron_right</span></div>
+      <div class="step-card">
+        <div class="step-num-circle">03</div>
+        <div class="step-icon-wrap"><span class="material-icons" style="color: #2dd4bf; font-size: 16px;">wifi_tethering</span></div>
+        <div class="step-label">LoRa</div>
+        <div class="step-body">Packet generated <em style="color: #fbbf24; font-style: normal; font-weight: 600;">(simulated)</em></div>
+      </div>
+      <div class="step-chevron"><span class="material-icons" style="font-size: 22px;">chevron_right</span></div>
+      <div class="step-card">
+        <div class="step-num-circle">04</div>
+        <div class="step-icon-wrap"><span class="material-icons" style="color: #2dd4bf; font-size: 16px;">router</span></div>
+        <div class="step-label">Gateway</div>
+        <div class="step-body">Packet received <em style="color: #fbbf24; font-style: normal; font-weight: 600;">(simulated)</em></div>
+      </div>
+      <div class="step-chevron"><span class="material-icons" style="font-size: 22px;">chevron_right</span></div>
+      <div class="step-card">
+        <div class="step-num-circle">05</div>
+        <div class="step-icon-wrap"><span class="material-icons" style="color: #2dd4bf; font-size: 16px;">hub</span></div>
+        <div class="step-label">MQTT</div>
+        <div class="step-body">Message routed <em style="color: #fbbf24; font-style: normal; font-weight: 600;">(simulated)</em></div>
+      </div>
+      <div class="step-chevron"><span class="material-icons" style="font-size: 22px;">chevron_right</span></div>
+      <div class="step-card">
+        <div class="step-num-circle">06</div>
+        <div class="step-icon-wrap"><span class="material-icons" style="color: #2dd4bf; font-size: 16px;">dashboard</span></div>
+        <div class="step-label">Dashboard</div>
+        <div class="step-body">Alert / ECO shown <em style="color: #fbbf24; font-style: normal; font-weight: 600;">(simulated)</em></div>
+      </div>
+    </div>
+
+    <!-- Demo Scenarios -->
+    <div style="display: flex; gap: 16px;">
+      <div class="demo-card accent">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span class="material-icons" style="color: #2dd4bf; font-size: 20px;">play_circle</span>
+          <div class="demo-header" style="color: #2dd4bf;">Threat Alert Demonstration</div>
+        </div>
+        <div style="font-size: 12.5px; color: #f1f8f5; line-height: 1.5;">
+          Node 01 → <span class="amber-bold">CHAINSAW</span>, Confidence: <span class="amber-bold">92%</span> → triggers immediate <span style="color: #fbbf24; font-weight: 600;">ALERT (0x01)</span> packet &amp; ranger alert banner.
+        </div>
+      </div>
+      <div class="demo-card emerald">
+        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+          <span class="material-icons" style="color: #34d399; font-size: 20px;">eco</span>
+          <div class="demo-header" style="color: #34d399;">Soundscape Intelligence Demonstration</div>
+        </div>
+        <div style="font-size: 12.5px; color: #f1f8f5; line-height: 1.5;">
+          Node 02 → <span class="emerald-bold">BIRD CHORUS</span>, Activity: <span class="emerald-bold">81%</span> → generates 60s <span style="color: #34d399; font-weight: 600;">ECO (0x02)</span> packet &amp; updates Forest Health Index.
+        </div>
+      </div>
+    </div>
+
+    <!-- Disclaimer Box -->
+    <div class="disclaimer-box">
+      <div style="width: 38px; height: 38px; border-radius: 50%; background: rgba(245,158,11,0.25); border: 2px solid #f59e0b; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+        <span class="material-icons" style="color: #fbbf24; font-size: 20px;">priority_high</span>
+      </div>
+      <div style="flex: 1;">
+        <div style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #fbbf24; font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; margin-bottom: 2px;">Simulation Boundary Notice</div>
+        <div style="font-size: 12px; color: #f1f8f5; line-height: 1.45;">
+          Simulation validates end-to-end telemetry and UI workflows. Classification outputs and radio packet timings are <span class="amber-bold">software-simulated proofs of concept, not physical hardware field results</span>.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>FAIN • Progress Seminar</div>
+    <div>15 / 24</div>
+  </div>
+
+</div>
+</body></html>

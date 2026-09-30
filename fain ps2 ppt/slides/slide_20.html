@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Budget &amp; Timeline / Gantt</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .budget-container {
+    padding: 14px 56px 0 56px;
+    height: 540px;
+    display: flex;
+    gap: 20px;
+    box-sizing: border-box;
+  }
+  .budget-tbl thead th { padding: 11px 14px; font-size: 11px; }
+  .budget-tbl tbody td { padding: 14px 14px; font-size: 12.5px; line-height: 1.4; }
+  .budget-tbl .total-row td {
+    background: linear-gradient(90deg, rgba(16,185,129,0.30), rgba(16,185,129,0.12)) !important;
+    border-top: 2px solid var(--primary);
+    color: var(--text);
+    font-weight: 700;
+  }
+  .budget-tbl .total-row .amt { color: var(--primary-2); font-size: 15px; }
+  .amber-note-box {
+    margin-top: 12px;
+    border-left: 3px solid var(--alert);
+    background: linear-gradient(90deg, rgba(245,158,11,0.10), rgba(245,158,11,0.02));
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 11px;
+    line-height: 1.45;
+    color: var(--text);
+  }
+  .amber-note-box .material-icons { font-size: 15px; color: var(--alert-2); vertical-align: middle; margin-right: 4px; }
+  .amber-emph { color: var(--alert-2); font-weight: 700; }
+
+  .gantt {
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    background: rgba(8, 24, 18, 0.4);
+  }
+  .gantt-row {
+    display: grid;
+    grid-template-columns: 170px repeat(8, 1fr);
+    align-items: center;
+    min-height: 42px;
+    position: relative;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.06);
+  }
+  .gantt-row:last-child { border-bottom: none; }
+  .gantt-head {
+    background: rgba(16, 185, 129, 0.16);
+    border-bottom: 1px solid var(--border-strong);
+    min-height: 36px;
+  }
+  .gantt-head .gantt-label,
+  .gantt-head .gantt-month {
+    font-family: var(--font-heading);
+    font-size: 11px;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 8px 0;
+    border-right: 1px solid rgba(45, 212, 191, 0.10);
+  }
+  .gantt-head .gantt-label {
+    text-align: left;
+    padding-left: 12px;
+    border-right: 1px solid var(--border-strong);
+  }
+  .gantt-label {
+    font-size: 11.5px;
+    color: var(--text);
+    padding: 0 12px;
+    line-height: 1.25;
+    border-right: 1px solid var(--border-strong);
+    overflow: hidden;
+  }
+  .gantt-bar-row {
+    position: relative;
+    display: grid;
+    grid-template-columns: 170px repeat(8, 1fr);
+    align-items: center;
+    min-height: 42px;
+    border-bottom: 1px solid rgba(45, 212, 191, 0.06);
+  }
+  .gantt-bar-row:last-child { border-bottom: none; }
+  .gantt-bar-row .gantt-label {
+    border-right: 1px solid var(--border-strong);
+    padding: 0 12px;
+    font-size: 11.5px;
+    color: var(--text);
+    line-height: 1.25;
+  }
+  .gantt-track {
+    grid-column: 2 / -1;
+    grid-row: 1;
+    position: relative;
+    height: 100%;
+    min-height: 42px;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .gantt-track::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(45,212,191,0.10) 1px, transparent 1px);
+    background-size: 12.5% 100%;
+    pointer-events: none;
+  }
+  .gantt-bar {
+    grid-row: 1;
+    align-self: center;
+    height: 22px;
+    border-radius: 999px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--font-num);
+    font-size: 10px;
+    font-weight: 700;
+    color: #061812;
+    margin: 0 4px;
+    box-shadow: 0 1px 6px rgba(0,0,0,0.35);
+  }
+  .bar-emerald {
+    background: linear-gradient(90deg, #10b981, #34d399);
+  }
+  .bar-teal {
+    background: linear-gradient(90deg, #2dd4bf, #14b8a6);
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+  <div style="padding: 26px 56px 0 56px;">
+    <div class="flex items-center gap-3 mb-1">
+      <span class="eyebrow">16 • Budget &amp; Timeline</span>
+      <span class="soundwave" data-decor>
+        <span style="animation-delay:0s"></span><span style="animation-delay:.2s"></span><span style="animation-delay:.4s"></span><span style="animation-delay:.6s"></span>
+      </span>
+    </div>
+    <h1 class="title-h1">Budget and Timeline / Gantt Chart</h1>
+  </div>
+
+  <div class="budget-container">
+    <div style="flex: 0 0 40%; display: flex; flex-direction: column; justify-content: space-between;">
+      <div class="glass" style="padding: 12px; border-radius: 14px;">
+        <table class="tbl budget-tbl">
+          <thead>
+            <tr>
+              <th style="width: 70%;">Category</th>
+              <th style="width: 30%; text-align: right;">Cost (₹)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2 Sensor Nodes (lean BOM, no GPS)</td>
+              <td class="num" style="text-align: right; color: var(--accent); font-weight: 600;">₹7,060</td>
+            </tr>
+            <tr>
+              <td>LoRaWAN Gateway (dept. Pi + single-channel HAT)</td>
+              <td class="num" style="text-align: right; color: var(--accent); font-weight: 600;">₹1,500</td>
+            </tr>
+            <tr>
+              <td>Miscellaneous (wiring, connectors, mounting)</td>
+              <td class="num" style="text-align: right; color: var(--accent); font-weight: 600;">₹700</td>
+            </tr>
+            <tr class="total-row">
+              <td>Grand Total</td>
+              <td class="amt num" style="text-align: right;">₹9,260</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="glass" style="padding: 12px 14px; border-radius: 12px; border-left: 4px solid var(--primary-2);">
+        <div style="font-family: var(--font-heading); font-size: 11px; font-weight: 700; color: var(--primary-2); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px;">
+          Cost Advantage vs Commercial Loggers
+        </div>
+        <div style="font-size: 11px; line-height: 1.45; color: var(--text);">
+          Commercial acoustic recorders cost ₹75,000–₹1,20,000+ per unit with <span style="color: #fbbf24; font-weight: 600;">zero real-time telemetry</span>. FAIN delivers on-device AI + LoRaWAN for <span style="color: #34d399; font-weight: 700;">₹4,630/node</span> (~95% cost reduction).
+        </div>
+      </div>
+
+      <div class="amber-note-box">
+        <span class="material-icons">info</span>
+        <span style="font-weight:600; color: var(--alert-2);">Note:</span>
+        Scaling to a 3rd node for wider field coverage adds <span class="amber-emph">~₹3,530</span>; adding GPS geotagging adds <span class="amber-emph">~₹450/node</span> — both are planned future expansions.
+      </div>
+    </div>
+
+    <div style="flex: 1;">
+      <div class="glass" style="padding: 12px; border-radius: 14px; height: 100%; display: flex; flex-direction: column; justify-content: space-between;">
+        <div class="gantt">
+          <div class="gantt-row gantt-head">
+            <div class="gantt-label">Task</div>
+            <div class="gantt-month">M1</div>
+            <div class="gantt-month">M2</div>
+            <div class="gantt-month">M3</div>
+            <div class="gantt-month">M4</div>
+            <div class="gantt-month">M5</div>
+            <div class="gantt-month">M6</div>
+            <div class="gantt-month">M7</div>
+            <div class="gantt-month">M8</div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Literature Review &amp; Procurement</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-emerald" style="grid-column: 1 / 2;">M1</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Dataset Collection &amp; Preprocessing</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-teal" style="grid-column: 1 / 3;">M1 → M2</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Model Training &amp; Quantization</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-emerald" style="grid-column: 2 / 4;">M2 → M3</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Firmware &amp; Node Integration</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-teal" style="grid-column: 3 / 5;">M3 → M4</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Gateway, Backend &amp; Dashboard Dev.</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-emerald" style="grid-column: 4 / 6;">M4 → M5</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Node Assembly &amp; Bench Testing</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-teal" style="grid-column: 5 / 7;">M5 → M6</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Field Testing &amp; Validation</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-emerald" style="grid-column: 6 / 8;">M6 → M7</div>
+            </div>
+          </div>
+
+          <div class="gantt-bar-row">
+            <div class="gantt-label">Documentation &amp; Final Report</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-teal" style="grid-column: 7 / 9;">M7 → M8</div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 16px; padding: 10px 12px 2px 12px; font-size: 11px; color: var(--text-muted);">
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="width:14px; height:6px; border-radius:3px; background: linear-gradient(90deg,#10b981,#34d399);"></span>
+            <span>Even-phase tasks</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:6px;">
+            <span style="width:14px; height:6px; border-radius:3px; background: linear-gradient(90deg,#2dd4bf,#14b8a6);"></span>
+            <span>Odd-phase tasks</span>
+          </div>
+          <div style="margin-left:auto;" class="num">Total duration: <span class="accent">8 months</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">20 / 24</div>
+  </div>
+</div>
+</body></html>

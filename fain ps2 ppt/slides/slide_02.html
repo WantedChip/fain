@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Outline</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .outline-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 16px;
+    width: 100%;
+    height: 510px;
+  }
+  .num-card {
+    padding: 18px 18px 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform .2s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .num-card::after {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    opacity: 0.6;
+  }
+  .num-card .num-big {
+    font-family: var(--font-num);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--primary-2);
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+  .num-card .label {
+    font-family: var(--font-heading);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.25;
+    margin-top: 8px;
+  }
+  .num-card .icon-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px; height: 30px;
+    border-radius: 8px;
+    background: rgba(45, 212, 191, 0.10);
+    border: 1px solid var(--border);
+    color: var(--accent);
+  }
+  .num-card .top-row {
+    display: flex; align-items: center; justify-content: space-between;
+  }
+</style>
+</head>
+<body>
+<div class="slide" style="padding: 48px 72px 56px;">
+  <span class="material-icons" data-decor aria-hidden="true" style="position:absolute; bottom:-80px; right:-50px; font-size:260px; color: var(--primary); opacity:0.04;">eco</span>
+
+  <div class="flex justify-between items-center" style="margin-bottom: 18px;">
+    <div>
+      <div class="eyebrow">Contents</div>
+      <h1 class="title-h1" style="margin-top: 4px;">Outline</h1>
+    </div>
+    <div class="soundwave" data-decor aria-hidden="true" style="height: 22px;">
+      <span style="height:8px"></span><span style="height:16px"></span><span style="height:22px"></span><span style="height:12px"></span><span style="height:18px"></span><span style="height:9px"></span><span style="height:14px"></span><span style="height:20px"></span><span style="height:7px"></span><span style="height:16px"></span><span style="height:22px"></span><span style="height:11px"></span><span style="height:18px"></span>
+    </div>
+  </div>
+
+  <div class="outline-grid">
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">01</div><span class="icon-pill"><span class="material-icons mi-18">info</span></span></div>
+      <div class="label">Introduction</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">02</div><span class="icon-pill"><span class="material-icons mi-18">bolt</span></span></div>
+      <div class="label">Motivation</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">03</div><span class="icon-pill"><span class="material-icons mi-18">menu_book</span></span></div>
+      <div class="label">Literature Survey</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">04</div><span class="icon-pill"><span class="material-icons mi-18">help_outline</span></span></div>
+      <div class="label">Problem Statement</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">05</div><span class="icon-pill"><span class="material-icons mi-18">gps_fixed</span></span></div>
+      <div class="label">Scope and Objectives</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">06</div><span class="icon-pill"><span class="material-icons mi-18">eco</span></span></div>
+      <div class="label">SDG Mapping</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">07</div><span class="icon-pill"><span class="material-icons mi-18">account_tree</span></span></div>
+      <div class="label">Proposed Methodology</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">08</div><span class="icon-pill"><span class="material-icons mi-18">memory</span></span></div>
+      <div class="label">Hardware / Software Requirements</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">09</div><span class="icon-pill"><span class="material-icons mi-18">schedule</span></span></div>
+      <div class="label">Budget and Timeline</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">10</div><span class="icon-pill"><span class="material-icons mi-18">apps</span></span></div>
+      <div class="label">Applications</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">11</div><span class="icon-pill"><span class="material-icons mi-18">flag</span></span></div>
+      <div class="label">Conclusion</div>
+    </div>
+    <div class="glass num-card">
+      <div class="top-row"><div class="num-big">12</div><span class="icon-pill"><span class="material-icons mi-18">library_books</span></span></div>
+      <div class="label">References</div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span><span>FAIN • Progress Seminar</span></div>
+    <div class="num">02 / 24</div>
+  </div>
+</div>
+</body></html>

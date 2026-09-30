@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Large-scale Deployment Model</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .layout-container {
+    padding: 12px 56px 0 56px;
+    display: flex;
+    gap: 20px;
+    height: 540px;
+    box-sizing: border-box;
+  }
+  .image-card {
+    flex: 0 0 690px;
+    height: 540px;
+    background: rgba(8, 24, 18, 0.75);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    position: relative;
+  }
+  .image-frame {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #030d09;
+    overflow: hidden;
+  }
+  .image-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+  }
+  .image-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 14px;
+    background: rgba(10, 36, 24, 0.9);
+    border-top: 1px solid var(--border);
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .image-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--accent);
+    font-family: var(--font-num);
+    font-size: 10.5px;
+    font-weight: 500;
+  }
+  .side-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 540px;
+    gap: 12px;
+  }
+  .principles-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 16px 18px;
+    backdrop-filter: blur(8px);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+  }
+  .principles-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(45,212,191,0.18);
+    margin-bottom: 8px;
+  }
+  .principles-header .title-wrap .main-title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #34d399;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .principles-header .title-wrap .sub-title {
+    font-size: 10px;
+    color: #9fb3a8;
+  }
+  .principles-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+    gap: 8px;
+  }
+  .principle-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 11.5px;
+    line-height: 1.4;
+    color: #f1f8f5;
+  }
+  .principle-item strong {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .tick-circle-sm {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: rgba(16,185,129,0.18);
+    border: 1px solid rgba(16,185,129,0.55);
+    color: #34d399;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .status-card {
+    background: linear-gradient(135deg, rgba(245,158,11,0.18), rgba(245,158,11,0.06));
+    border: 1px solid rgba(245,158,11,0.45);
+    border-left: 4px solid #f59e0b;
+    border-radius: 12px;
+    padding: 12px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .status-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .status-badge {
+    width: 22px;
+    height: 22px;
+    border-radius: 6px;
+    background: rgba(245,158,11,0.22);
+    border: 1px solid rgba(245,158,11,0.55);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fbbf24;
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div style="padding: 22px 56px 0 56px;">
+    <div class="eyebrow">12 • Large-scale Deployment Model</div>
+    <h1 class="title-h1" style="margin-top: 4px; font-size: 32px;">Proposed Large-Scale Deployment Model</h1>
+    <div style="font-size: 11.5px; color: #9fb3a8; margin-top: 4px;">Conceptual network planning for future forest-scale deployment — not a physical deployment result</div>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="layout-container">
+
+    <!-- Left: Full diagram image card -->
+    <div class="image-card">
+      <div class="image-frame">
+        <img src="deployment_model.png" alt="FAIN Large-Scale Mesh Deployment Model">
+      </div>
+      <div class="image-card-footer">
+        <div class="image-badge">
+          <span class="material-icons mi-16">hub</span>
+          <span>Melghat Tiger Reserve Reference Topology (~2,768 km²)</span>
+        </div>
+        <div style="font-family: var(--font-num); color: var(--accent); font-size: 10px;">
+          Full Mesh • Zero Dead Zones
+        </div>
+      </div>
+    </div>
+
+    <!-- Right: Elongated content occupying full height -->
+    <div class="side-content">
+
+      <div class="principles-card">
+        <div class="principles-header">
+          <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16,185,129,0.18); border: 1px solid rgba(16,185,129,0.55); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+            <span class="material-icons" style="color: #34d399; font-size: 20px;">design_services</span>
+          </div>
+          <div class="title-wrap">
+            <div class="main-title">Network Architecture Principles</div>
+            <div class="sub-title">Future forest-scale mesh topology &amp; operational design</div>
+          </div>
+        </div>
+
+        <div class="principles-list">
+          <div class="principle-item">
+            <div class="tick-circle-sm"><span class="material-icons" style="font-size: 11px;">check</span></div>
+            <div>
+              <strong>Cluster-Based Full Mesh:</strong> Forest is partitioned into overlapping cells (25–50 nodes, ~20–60 km² each) eliminating radio shadows and coverage dead zones.
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="tick-circle-sm"><span class="material-icons" style="font-size: 11px;">check</span></div>
+            <div>
+              <strong>Edge Gateways with Backhaul:</strong> High-reliability gateways (4G / Fiber / Satellite) positioned along accessible forest borders — no fragile central servers deep in the canopy.
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="tick-circle-sm"><span class="material-icons" style="font-size: 11px;">check</span></div>
+            <div>
+              <strong>Multi-Hop Dynamic Routing:</strong> Alerts relay hop-to-hop (4–6 hops max) to perimeter gateways; self-healing mesh dynamically bypasses damaged or depleted nodes.
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="tick-circle-sm"><span class="material-icons" style="font-size: 11px;">check</span></div>
+            <div>
+              <strong>Every Node a Transceiver:</strong> Dual-capability nodes execute on-device TinyML audio inference while serving as intermediate LoRa mesh packet repeaters.
+            </div>
+          </div>
+
+          <div class="principle-item">
+            <div class="tick-circle-sm"><span class="material-icons" style="font-size: 11px;">check</span></div>
+            <div>
+              <strong>Independent Scaling:</strong> Physical seminar prototype proves the 2-node LoRa link; the multi-hop routing protocol scales seamlessly to thousands of square kilometers.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="status-card">
+        <div class="status-header">
+          <div class="status-badge">
+            <span class="material-icons" style="font-size: 15px;">info</span>
+          </div>
+          <div style="font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11.5px; color: #fbbf24; letter-spacing: 0.08em; text-transform: uppercase;">
+            Status &amp; Scope Clarification
+          </div>
+        </div>
+        <div style="font-size: 11px; color: #f1f8f5; line-height: 1.45;">
+          <span style="color: #fbbf24; font-weight: 700;">Illustrative engineering design only.</span> Demonstrates reserve-scale viability. Actual node spacing (~250–400 m) and canopy attenuation will be calibrated through field RSSI/SNR trials; the physical PS2 demonstrator remains the committed 2-node prototype.
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>FAIN • Progress Seminar</div>
+    <div>16 / 24</div>
+  </div>
+
+</div>
+</body></html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>FAIN — Proposed Methodology</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="global.css">
+<style>
+  .method-container {
+    padding: 14px 56px 0 56px;
+    height: 545px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-sizing: border-box;
+  }
+  .pipe-card {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 14px 12px;
+    text-align: center;
+    backdrop-filter: blur(8px);
+    position: relative;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  }
+  .pipe-card .pipe-icon {
+    width: 38px; height: 38px; border-radius: 50%;
+    background: rgba(16,185,129,0.18);
+    border: 1px solid rgba(16,185,129,0.5);
+    display: inline-flex; align-items: center; justify-content: center;
+    margin-bottom: 6px;
+  }
+  .pipe-name {
+    font-family: 'Poppins', sans-serif; font-weight: 600; color: #f1f8f5;
+    font-size: 13px; line-height: 1.25;
+  }
+  .pipe-sub { font-size: 10.5px; color: #9fb3a8; line-height: 1.35; margin-top: 4px; }
+  .pipe-arrow {
+    color: #34d399; font-size: 28px; flex-shrink: 0;
+    display: flex; align-items: center; opacity: 0.8;
+  }
+  .num-circle-sm {
+    width: 24px; height: 24px; border-radius: 50%;
+    background: rgba(16,185,129,0.18);
+    border: 1.5px solid rgba(16,185,129,0.6);
+    color: #34d399; font-family: 'JetBrains Mono', monospace; font-weight: 700;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 11.5px; flex-shrink: 0;
+  }
+  .phase-card {
+    background: rgba(8,24,18,0.55);
+    border: 1px solid rgba(45,212,191,0.18);
+    border-radius: 12px;
+    padding: 14px 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.2);
+  }
+  .phase-label {
+    font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 11.5px; color: #2dd4bf;
+    text-transform: uppercase; letter-spacing: 0.08em;
+  }
+  .phase-body { font-size: 11.5px; line-height: 1.45; color: #f1f8f5; margin-top: 6px; }
+  .accent-num { color: #2dd4bf; font-weight: 600; font-family: 'JetBrains Mono', monospace; }
+  .amber-em { color: #fbbf24; font-weight: 600; }
+  .novelty-card {
+    background: rgba(8,24,18,0.65);
+    border: 1px solid rgba(45,212,191,0.22);
+    border-left: 4px solid #f59e0b;
+    border-radius: 12px;
+    padding: 12px 18px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
+  }
+</style>
+</head>
+<body>
+<div class="slide">
+
+  <div style="padding: 24px 56px 0 56px;">
+    <div class="eyebrow">07 • Proposed Methodology</div>
+    <h1 class="title-h1" style="margin-top: 4px;">Proposed Methodology</h1>
+    <div style="height: 2px; width: 60px; background: linear-gradient(90deg, #10b981, #2dd4bf); margin-top: 8px; border-radius: 2px;"></div>
+  </div>
+
+  <div class="method-container">
+    <!-- Pipeline Flow -->
+    <div>
+      <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+        <span class="eyebrow" style="font-size: 10.5px;">End-to-End Pipeline Flow</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 6px;">
+        <div class="pipe-card">
+          <div class="pipe-icon"><span class="material-icons" style="color: #34d399; font-size: 22px;">sensors</span></div>
+          <div class="pipe-name">Sensor Nodes × 2</div>
+          <div class="pipe-sub">ESP32-S3 + SX1262 + INMP441 mic</div>
+        </div>
+        <div class="pipe-arrow"><span class="material-icons" style="font-size: 24px;">chevron_right</span></div>
+        <div class="pipe-card">
+          <div class="pipe-icon"><span class="material-icons" style="color: #34d399; font-size: 22px;">router</span></div>
+          <div class="pipe-name">LoRaWAN Gateway</div>
+          <div class="pipe-sub">Raspberry Pi 4 + SX1276 HAT, Chirpstack</div>
+        </div>
+        <div class="pipe-arrow"><span class="material-icons" style="font-size: 24px;">chevron_right</span></div>
+        <div class="pipe-card">
+          <div class="pipe-icon"><span class="material-icons" style="color: #34d399; font-size: 22px;">dns</span></div>
+          <div class="pipe-name">Backend</div>
+          <div class="pipe-sub">Node.js + PostgreSQL + MQTT</div>
+        </div>
+        <div class="pipe-arrow"><span class="material-icons" style="font-size: 24px;">chevron_right</span></div>
+        <div class="pipe-card">
+          <div class="pipe-icon"><span class="material-icons" style="color: #34d399; font-size: 22px;">dashboard</span></div>
+          <div class="pipe-name">Ranger Dashboard</div>
+          <div class="pipe-sub">React + Leaflet + Recharts</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Novelty / Innovation -->
+    <div class="novelty-card">
+      <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
+        <span class="material-icons" style="color: #fbbf24; font-size: 20px;">auto_awesome</span>
+        <div style="font-family: 'Poppins', sans-serif; font-weight: 700; color: #fbbf24; font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;">Novelty / Innovation</div>
+      </div>
+      <div style="font-size: 12px; line-height: 1.45; color: #f1f8f5;">
+        <div style="display: flex; gap: 8px; align-items: flex-start; margin-bottom: 4px;">
+          <span style="color: #fbbf24; font-weight: 700;">•</span>
+          <div>Combines four elements no existing system integrates together: on-device <span class="accent-num">7-class TinyML</span> inference, <span class="accent-num">LoRaWAN telemetry</span> (no cellular SIM), solar energy autonomy, and dual threat + biodiversity output.</div>
+        </div>
+        <div style="display: flex; gap: 8px; align-items: flex-start;">
+          <span style="color: #fbbf24; font-weight: 700;">•</span>
+          <div>Unlike <em style="color: #2dd4bf;">De Miguel et al. (2025)</em>, which streams compressed audio to the cloud for classification, FAIN performs 100% of inference on-device, transmitting only a <span class="accent-num">10–16 byte packet</span> per event.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Phase-wise Methodology -->
+    <div>
+      <div style="display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
+        <span class="eyebrow" style="font-size: 10.5px;">Methodology (Phase-wise Execution)</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px;">
+        <div class="phase-card">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="num-circle-sm">1</div>
+            <div class="phase-label">Dataset collection</div>
+          </div>
+          <div class="phase-body">ESC-50, UrbanSound8K, Freesound, Xeno-canto + custom recordings (<span class="accent-num">3,600+</span> clips across <span class="accent-num">7 classes</span>).</div>
+        </div>
+        <div class="phase-card">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="num-circle-sm">2</div>
+            <div class="phase-label">Feature extraction</div>
+          </div>
+          <div class="phase-body"><span class="accent-num">16 kHz</span> audio → <span class="accent-num">512-pt FFT</span> → <span class="accent-num">40-bin Mel</span> filterbank → MFCC (<span class="accent-num">40×101</span>).</div>
+        </div>
+        <div class="phase-card">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="num-circle-sm">3</div>
+            <div class="phase-label">CNN training</div>
+          </div>
+          <div class="phase-body">CNN training (<span class="accent-num">~186K params</span>) and <span class="accent-num">INT8</span> quantization to a <span class="accent-num">&lt;70 KB</span> deployable model.</div>
+        </div>
+        <div class="phase-card">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="num-circle-sm">4</div>
+            <div class="phase-label">Embedded deployment</div>
+          </div>
+          <div class="phase-body">TFLite Micro on <span class="accent-num">ESP32-S3</span> (<span class="accent-num">80 KB</span> tensor arena, <span class="accent-num">&lt;250 ms</span> inference).</div>
+        </div>
+        <div class="phase-card">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="num-circle-sm">5</div>
+            <div class="phase-label">Firmware logic</div>
+          </div>
+          <div class="phase-body">Threat-alert path (<span class="accent-num">&gt;0.85</span> confidence) plus a <span class="accent-num">60-second</span> ecological heartbeat path.</div>
+        </div>
+        <div class="phase-card">
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <div class="num-circle-sm">6</div>
+            <div class="phase-label">Field testing</div>
+          </div>
+          <div class="phase-body">Field testing and validation at <span class="accent-num">20 m / 50 m / 100 m</span> distances in diverse vegetation.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <div class="brand"><span class="dot"></span>FAIN • Progress Seminar</div>
+    <div>11 / 24</div>
+  </div>
+
+</div>
+</body></html>
